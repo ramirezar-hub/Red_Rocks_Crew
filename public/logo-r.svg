@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Stylized R logo -->
+  <g fill="#1e293b">
+    <!-- Top bar -->
+    <rect x="15" y="15" width="70" height="10"/>
+    <!-- Second bar -->
+    <rect x="15" y="30" width="70" height="10"/>
+    <!-- Diagonal from top-right going down-left -->
+    <polygon points="85,15 70,15 40,75 55,75"/>
+    <!-- Bottom left vertical -->
+    <rect x="15" y="15" width="12" height="70"/>
+    <!-- Arrow point extending right -->
+    <polygon points="55,75 40,60 70,60 85,75 70,90 40,90"/>
+  </g>
+</svg>
