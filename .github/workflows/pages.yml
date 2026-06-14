@@ -1,0 +1,43 @@
+name: Deploy game to GitHub Pages
+
+# Publishes the contents of the `games/` folder to GitHub Pages so the
+# Big Numbers game is reachable at a tappable URL (great for iPad/phone).
+
+on:
+  push:
+    branches: ["claude/march-madness-betting-tracker-nUdOF"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes cancel in-progress runs.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages (auto-enable if needed)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload games folder as the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: games
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
